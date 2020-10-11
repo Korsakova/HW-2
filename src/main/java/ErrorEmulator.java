@@ -10,8 +10,7 @@ public class ErrorEmulator {
                 throw exception;
             }
 
-        }
-        catch(NullPointerException ex){
+        } catch (NullPointerException ex) {
             ex.printStackTrace();
             iAmNeverReturn = iAmNeverReturn + " или вернусь!";
         }
@@ -20,22 +19,24 @@ public class ErrorEmulator {
     }
 
     public Integer iAmThrowsArrayIndexOutOfBoundsException(String[] massive) throws ArrayIndexOutOfBoundsException {
-
-       try{
-           // 1. определить длину массива (кол-во элементов в массиве)
-           int lengthMassive = massive.length;
-           // 2. прибавить к длинне массива 10
-           int valueY = lengthMassive + 10;
-           // 3. обратиться к ячейке массива с полученным значением
-           String valueZ = massive[valueY];
-       }
-
-       catch(ArrayIndexOutOfBoundsException ex2){
-           ex2.printStackTrace();
-           valueZ = valueZ + "нет ошибкам";
-       }
+        String valueZ;
+        try {
+            // 1. определить длину массива (кол-во элементов в массиве)
+            int lengthMassive = massive.length;
+            // 2. прибавить к длинне массива 10
+            int valueY = lengthMassive + 10;
+            // 3. обратиться к ячейке массива с полученным значением
+            valueZ = massive[valueY];
+        } catch (ArrayIndexOutOfBoundsException ex2) {
+            ex2.printStackTrace();
+            valueZ = massive[0];
+        }
 
         // 4. вернуть длину строчки из полученной ячейк
         return valueZ.length();
+    }
+
+    public  Integer iAmThrowsUnsupportedOperationException () throws UnsupportedOperationException {
+       throw new UnsupportedOperationException();
     }
 }

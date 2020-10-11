@@ -5,6 +5,9 @@ public class HelloWorld {
 
         String[] newMassiva = {"ннн","ппп","жжж","ккк"};
         System.out.println(emulator.iAmThrowsArrayIndexOutOfBoundsException(newMassiva));
+
+        System.out.println(emulator.iAmThrowsUnsupportedOperationException());
+
     }
 
 }
