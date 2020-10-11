@@ -1,3 +1,7 @@
+package Часть1;
+
+import Часть1.ErrorEmulator;
+
 public class HelloWorld {
     public static void main(String[] args) {
         ErrorEmulator emulator = new ErrorEmulator();
