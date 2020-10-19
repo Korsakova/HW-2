@@ -15,16 +15,23 @@ public class Person implements Comparable<Person> {
 
 
     public int compareTo(Person p2) {
+
         // сравнение пола
         if(!this.sex.equals(p2.sex)){
           return this.sex.equals("man")? 1: -1;
         }
         // сравнение возраста
-        else if(this.age != p2.age){
+        if(this.age != p2.age){
             return this.age > p2.age? 1: -1;
         }
+
+        int v = -this.name.compareTo(p2.name);
+
+        if(v == 0){
+            throw new RuntimeException("Кажется Вы близнецы!");
+        }
         // сравнение имен и возврат итогового сравнения
-        return -this.name.compareTo(p2.name);
+        return v;
     }
 
     public static void main(String[] args)   {
