@@ -1,27 +1,58 @@
 package Часть3;
+import java.util.Arrays;
 
 public class Person implements Comparable<Person> {
     int age;
     String sex;
     String name;
 
-    public int compareTo(Person p2) {
-        // Если this.sex == p2 == man, переходим ко второму условию
-        // Если this.sex != p2,  но this.sex== man, пишем сперва this.sex
-        // Если this.sex != p2,  но p2== man, пишем сперва p2
-        if(this.sex.equals(p2)){
-
-        }
-        // Если this.age == p2, переходим ко третьему условию
-        // Если this.age > p2, пишем сперва this.age
-        // Если this.age > p2, пишем сперва p2
-        else if(p2.age){
-
-        }
-        else if(p2.name){
-
-        }
-
-        return 0;
+    // Конструктор для массива Person
+    public Person(int age, String sex, String name){
+        this.sex = sex;
+        this.age = age;
+        this.name = name;
     }
+
+
+    public int compareTo(Person p2) {
+        // сравнение пола
+        if(!this.sex.equals(p2.sex)){
+          return this.sex.equals("man")? 1: -1;
+        }
+        // сравнение возраста
+        else if(this.age != p2.age){
+            return this.age > p2.age? 1: -1;
+        }
+        // сравнение имен и возврат итогового сравнения
+        return -this.name.compareTo(p2.name);
+    }
+
+    public static void main(String[] args)   {
+        Person[] newPersons = new Person[4];
+
+
+        newPersons[0] = new Person(10, "man","Ян");
+        newPersons[1] = new Person(45, "woman","Василиса");
+        newPersons[2] = new Person(15, "man","Олег");
+        newPersons[3] = new Person(45, "woman","Ольга");
+
+        // Вывод на экран до сортировки
+        System.out.println(Arrays.toString(newPersons));
+
+        FirstSortingClass newFirstSortingClass = new FirstSortingClass();
+        newFirstSortingClass.sorting(newPersons);
+
+        // Вывод на экран после сортировки по методу прописанному в классе FirstSortingClass
+        System.out.println(Arrays.toString(newPersons));
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "age=" + age +
+                ", sex='" + sex + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
 }

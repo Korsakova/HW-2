@@ -3,7 +3,7 @@ package Часть2;
 public class RandomNumberGenerator {
     public static void main(String[] args) {
         // Зададим число N
-        double N = 10;
+        int N = 10;
         // Вычислим квадратный корень n раз
         for (int s = 0; s < N; s++) {
             // Генерируем случайное число от -10 до 10

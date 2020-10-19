@@ -1,5 +1,6 @@
 package Часть1;
 
+
 public class ErrorEmulator {
 
     public String iAmThrowsNullPointerException() throws NullPointerException {
