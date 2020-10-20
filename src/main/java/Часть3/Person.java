@@ -1,4 +1,6 @@
 package Часть3;
+import java.util.Random;
+import java.util.Scanner;
 import java.util.Arrays;
 
 public class Person implements Comparable<Person> {
@@ -12,6 +14,21 @@ public class Person implements Comparable<Person> {
         this.age = age;
         this.name = name;
     }
+
+    public Person(){
+        // Генерация возраста от 0 до 100
+        this.age = (int) (Math.random()*101);
+        // Генерация пола от 0 до 1, где 0-man, 1- woman
+        this.sex = ((int) (Math.random()*2)) == 0? "man": "woman";
+        // Генерация имени
+        Random random = new Random();
+
+        StringBuilder this.name = new String();
+        this.name = ((char)random.nextInt(97, 123));
+
+
+}
+
 
 
     public int compareTo(Person p2) {
