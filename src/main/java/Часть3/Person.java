@@ -21,10 +21,12 @@ public class Person implements Comparable<Person> {
         // Генерация пола от 0 до 1, где 0-man, 1- woman
         this.sex = ((int) (Math.random()*2)) == 0? "man": "woman";
         // Генерация имени
-        Random random = new Random();
-
-        StringBuilder this.name = new String();
-        this.name = ((char)random.nextInt(97, 123));
+//        Random random = new Random();
+//        int nums = random.nextInt(5,10);
+//        StringBuilder this.name = new String();
+//        for(int k = 0; k < nums; k++){
+//            this.name.append((char) random.nextInt(97, 123));
+//        }
 
 
 }
