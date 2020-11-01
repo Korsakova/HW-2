@@ -1,7 +1,8 @@
 package Часть3;
+import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Person implements Comparable<Person> {
     int age;
@@ -21,15 +22,15 @@ public class Person implements Comparable<Person> {
         // Генерация пола от 0 до 1, где 0-man, 1- woman
         this.sex = ((int) (Math.random()*2)) == 0? "man": "woman";
         // Генерация имени
-//        Random random = new Random();
-//        int nums = random.nextInt(5, 11);
-//        StringBuilder this.name = new StringBuilder();
-//        this.name.append = ((char)random.nextInt(97, 123));
+        Random random = new Random();
+        int nums = 5 + random.nextInt(5);
+        StringBuilder newName = new StringBuilder();
+        for (int t = 0; t < nums; t++) {
+            newName.append((char) (97 + random.nextInt(26)));
+        }
+        this.name = newName.toString();
 
-
-}
-
-
+    }
 
     public int compareTo(Person p2) {
 
@@ -52,19 +53,26 @@ public class Person implements Comparable<Person> {
     }
 
     public static void main(String[] args)   {
-        Person[] newPersons = new Person[4];
-
-
-        newPersons[0] = new Person(10, "man","Ян");
-        newPersons[1] = new Person(45, "woman","Василиса");
-        newPersons[2] = new Person(15, "man","Олег");
-        newPersons[3] = new Person(45, "woman","Ольга");
+        final Scanner sc= new Scanner(System.in);
+        System.out.print("Введите число от 1 до 1000 и более:");
+        int n = sc.nextInt();
+        // создание нового массива
+        Person[] newPersons = new Person[n];
+        for(int i = 0; i < n; i++){
+            // создание нового элемента массива
+            newPersons[i] = new Person();
+        }
 
         // Вывод на экран до сортировки
         System.out.println(Arrays.toString(newPersons));
 
-        FirstSortingClass newFirstSortingClass = new FirstSortingClass();
-        newFirstSortingClass.sorting(newPersons);
+        // Сортировка классом BubbleSortingClass
+        BubbleSortingClass newFirstSortingClass = new BubbleSortingClass();
+        newFirstSortingClass.sort(newPersons);
+
+        // Сортировка классом InsertionSortingClass
+        InsertionSortingClass newInsertionSortingClass = new InsertionSortingClass();
+        newInsertionSortingClass.sort(newPersons);
 
         // Вывод на экран после сортировки по методу прописанному в классе FirstSortingClass
         System.out.println(Arrays.toString(newPersons));
@@ -78,5 +86,4 @@ public class Person implements Comparable<Person> {
                 ", name='" + name + '\'' +
                 '}';
     }
-
 }

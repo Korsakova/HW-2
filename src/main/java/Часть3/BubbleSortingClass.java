@@ -1,8 +1,8 @@
 package Часть3;
 
-public class FirstSortingClass {
+public class BubbleSortingClass implements Sorter<Person>{
 
-    public void sorting(Person[] persons) {
+    public Person[] sort(Person[] persons) {
 
         for (int i = 0; i < persons.length; i++) {
             for (int j = i + 1; j < persons.length; j++) {
@@ -17,7 +17,7 @@ public class FirstSortingClass {
                 }
 
             }
-
         }
+        return persons;
     }
 }
